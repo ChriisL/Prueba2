@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block titulo %}Relación Médico-Paciente{% endblock %}
+{% block bienvenido %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Médico-Paciente
+                </h1>
+            </div>
+        </div>
+        <table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Médico</th>
+									<th>Paciente</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for a in lis %}
+								<tr>
+									<th>{{a.medico}}</th>
+									<th>{{a.nombre}}</th>
+								</tr>
+								{%endfor%}
+							</tbody>
+				</table>
+    </div>
+{% endblock %}
+
+    {% block subir %}
+    <a style="display:scroll; position:fixed; bottom:10px; right:20px" href="/medico_paciente"><img src="/static/img/up.png" width="80" />
+    {% endblock %}

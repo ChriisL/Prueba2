@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block titulo %}Registro Médico{% endblock %}
+{% block bienvenido %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    {{mensaje}}
+                </h1>
+            </div>
+            <form method="POST" enctype="multipart/form-data">
+			    {% csrf_token %}
+			    <label for="imagen">Seleccione una imagen:</label>
+			    <!--input id="id_art_imagen" name="art_imagen" type="FILE" required/-->
+			    <input id="imagen" type="FILE" class="form-control" aria-describedby="basic-addon1" name="imagen" required/>
+
+			    <label for="codigo">Código:</label>
+			    <!--input id="id_art_imagen" name="art_imagen" type="FILE" required/-->
+			    <input id="codigo" type="text" class="form-control" aria-describedby="basic-addon1" name="codigo" required/>
+
+			    <label for="nombre">Nombre:</label>
+			    <!--input id="id_art_imagen" name="art_imagen" type="FILE" required/-->
+			    <input id="nombre" type="text" class="form-control" aria-describedby="basic-addon1" name="nombre" required/>
+
+			    <label for="consultorio">Consultorio al que pertenece:</label>
+			    <!--input id="id_art_autor" name="art_autor" type="text" value="" required/></p-->
+			    <div class="form-group">
+			        <div class="col-md-14">
+			            <select class="form-control" id="status" name="consultorio">
+			                {% for a in con %}
+			                <option>{{a.nombre}}</option>
+			                {% endfor %}
+			            </select>
+			        </div>
+			    </div>
+
+			    <label for="direccion">Dirección:</label>
+			    <input id="direccion" type="text" class="form-control" aria-describedby="basic-addon1" name="direccion" required/>
+
+			    <label for="telefono">Telefono:</label>
+			    <input id="telefono" type="number" class="form-control" aria-describedby="basic-addon1" name="telefono" required/>
+			    <br><center>
+				<input type="submit" href="#" class="btn btn-lg btn-success" value="Guardar">
+				</center>
+			</form>
+        </div>
+{% endblock %}
+
+    {% block subir %}
+    <a style="display:scroll; position:fixed; bottom:10px; right:20px" href="/registrar_medico"><img src="/static/img/up.png" width="80" />
+    {% endblock %}

@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block titulo %}Hospital Inmortal{% endblock %}
+    {% block carrousel %}
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('static/img/1.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Salud</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('static/img/2.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Confianza</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('static/img/3.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Seguridad</h2>
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+    {% endblock %}
+
+    {% block bienvenido %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Bienvenido a HOSPITAL INMORTAL!
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-user-md"></i> Medicos</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Se cuentan con diferentes medicos en el hospital cada uno atendiendo en su respectivo consultorio, se pueden registrar o bien obtener un listado.</p>
+                        <a href="/registrar_medico" class="btn btn-default">Registrar</a>
+                        <a href="/listado_medico" class="btn btn-default">Listado</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-users"></i> Pacientes</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Se tiene el control de los pacientes que han sido atendidos, mediante un registro y a su vez se puede observar la lista de los mismos.</p>
+                        <a href="/registrar_paciente" class="btn btn-default">Registrar</a>
+                        <a href="/listado_paciente" class="btn btn-default">Listado</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-hospital-o"></i> Consultorio</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Se cuentan con diferentes consultorios los cuales cuentan con su horario y especialización; se pueden registrar o ver el listado.</p>
+                        <a href="/registrar_consultorio" class="btn btn-default">Registrar</a>
+                        <a href="/listado_consultorio" class="btn btn-default">Listado</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Ultimos Pacientes
+                </h1>
+            </div>
+
+
+            <!--div class="page-header">
+              <ul class="nav nav-list" id="Pacientes">
+
+              </ul>
+            </div-->
+            <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Atención Recibida</th>
+                                    <th>Fecha de Atención</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="Pacientes">
+                                
+                                </tr>
+                            </tbody>
+            </table>
+        </div>
+        {% endblock %}
+
+        {% block subir %}
+    <a style="display:scroll; position:fixed; bottom:10px; right:20px" href="/"><img src="/static/img/up.png" width="80" />
+    {% endblock %}
+
+    {% block script %}
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+    {% endblock %}

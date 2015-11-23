@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block titulo %}Listado Consultorios{% endblock %}
+{% block bienvenido %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Listado de Consultorios
+                </h1>
+            </div>
+        </div>
+        <table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Médico</th>
+									<th>Código</th>
+									<th>Nombre</th>
+									<th>Consultorio</th>
+									<th>Dirección</th>
+									<th>Teléfono</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for a in lis %}
+								<tr>
+								 <th><img src="http://localhost:8000/media/{{a.imagen}}" width="200"></th>
+									<th>{{a.codigo}}</th>
+									<th>{{a.nombre}}</th>
+									<th>{{a.consultorio}}</th>
+									<th>{{a.direccion}}</th>
+									<th>{{a.telefono}}</th>
+								</tr>
+								{%endfor%}
+							</tbody>
+				</table>
+    </div>
+{% endblock %}
+
+    {% block subir %}
+    <a style="display:scroll; position:fixed; bottom:10px; right:20px" href="/registrar_medico"><img src="/static/img/up.png" width="80" />
+    {% endblock %}
